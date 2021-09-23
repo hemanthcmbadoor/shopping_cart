@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/stylesheets/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/stylesheets/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/javascripts/datatables-bs4/css/dataTables.bootstrap4.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/stylesheets/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition layout-top-nav">
+    <div class="wrapper">
+        {{#if admin}}
+        {{>admin-header}}
+        {{else}}
+        {{>user-header}}
+        {{/if}}
+
+        {{{body}}}
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                Anything you want
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="/javascripts/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/javascripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/javascripts/js/adminlte.min.js"></script>
+
+
+    <!-- DataTables -->
+    <script src="/javascripts/datatables/jquery.dataTables.js"></script>
+    <script src="/javascripts/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="/javascripts/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+</body>
+
+<script>
+    $(function () {
+        $("#example1").DataTable();
+
+    });
+
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+</script>
+
+</html>
