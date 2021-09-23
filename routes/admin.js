@@ -1,3 +1,4 @@
+const { response } = require('express');
 var express = require('express');
 const productHelpers = require('../helpers/product-helpers');
 var router = express.Router();
@@ -7,6 +8,7 @@ router.get('/', function (req, res, next) {
     res.render('admin/view-products', { admin: true, products });
   })
 });
+
 
 router.get('/add-product', function (req, res) {
   res.render('admin/add-product', { admin: true });
@@ -25,5 +27,14 @@ router.post('/add-product', (req, res) => {
     })
   })
 });
+
+router.get('/delete-product/:id', function (req, res) {
+  let prodId = req.params.id
+  console.log(prodId)
+  productHelpers.deleteProduct(prodId).then((response)=>{
+    res.redirect('/admin')
+  })
+});
+
 
 module.exports = router;
