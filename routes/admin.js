@@ -19,7 +19,7 @@ router.post('/add-product', (req, res) => {
     let image_file = req.files.image
     image_file.mv('./public/images/product-images/' + id + '.jpg', (err, done) => {
       if (!err) {
-        res.render("admin/add-product")
+        res.render("admin/add-product", { admin: true })
       }
       else {
         console.log(err)
@@ -36,5 +36,9 @@ router.get('/delete-product/:id', function (req, res) {
   })
 });
 
+router.get('/edit-product/:id', async (req, res)=> {
+  let product = await productHelpers.getProductDetails(req.params.id)
+  res.render('admin/edit-product', { admin: true,product });
+});
 
 module.exports = router;
